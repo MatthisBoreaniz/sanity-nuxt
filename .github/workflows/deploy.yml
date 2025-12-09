@@ -8,16 +8,20 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment: 
-      name: ${{ github.ref_name }}
+
     steps:
-      - uses: actions/checkout@v4
-      
-      - name: Install Dependencies
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
         run: npm install
 
+      - name: Authenticate with Sanity
+        run: sanity login --with-token
         env:
           SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
-        
-      - name: Deploy
+
+      - name: Deploy Sanity Studio
         run: npm run deploy -- --yes
+        env:
+          SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}

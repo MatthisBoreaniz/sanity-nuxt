@@ -17,11 +17,12 @@ jobs:
         run: npm install
 
       - name: Authenticate with Sanity
-        run: sanity login --with-token
+        run: npx sanity login --with-token
         env:
           SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
 
       - name: Deploy Sanity Studio
-        run: npm run deploy -- --yes
+        run: npx sanity deploy --yes
         env:
           SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
+

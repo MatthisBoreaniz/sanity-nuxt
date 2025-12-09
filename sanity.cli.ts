@@ -5,6 +5,7 @@ export default defineCliConfig({
     projectId: 'bs26cy7u',
     dataset: 'production',
   },
+  studioHost: process.env.SANITY_STUDIO_HOST,
   deployment: {
     /**
      * Enable auto-updates for studios.

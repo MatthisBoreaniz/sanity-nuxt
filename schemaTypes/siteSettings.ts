@@ -58,5 +58,60 @@ export const siteSettings = defineType({
         },
       ],
     }),
+    defineField({
+      name: 'navigation2',
+      title: 'Navigation2',
+      type: 'array',
+      group: 'header',
+      of: [
+        {
+          title: 'item',
+          name: 'item',
+          type: 'object',
+          fields: [
+            {
+              name: 'label',
+              title: 'Label',
+              type: 'string',
+            },
+            {
+              name: 'url',
+              title: 'URL',
+              type: 'string',
+            },
+          ],
+        },
+      ],
+    }),
+     defineField({
+      name: 'authLink',
+      title: 'authLink',
+      type: 'array',
+      group: 'header',
+      of: [
+        {
+          title: 'item',
+          name: 'item',
+          type: 'object',
+          fields: [
+            {
+              name: 'label',
+              title: 'Label',
+              type: 'string',
+            },
+            {
+              name: 'url',
+              title: 'URL',
+              type: 'string',
+            },
+            {
+              name: 'icon',
+              title: 'Icon',
+              type: 'image',
+            }
+          ],
+        },
+      ],
+    }),
   ],
 })
